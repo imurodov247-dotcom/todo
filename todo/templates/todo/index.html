@@ -9,9 +9,26 @@
     <h1>Salom dunyo</h1>
     <form action="" method="post">
         {% csrf_token %}
-       {{form.as_p}}
-       {{form.errors}}
-
+        {% comment %}
+                 {{form.as_p}}
+        {% endcomment %}
+        
+        <p> 
+        <label for="">Title</label>
+        <input type="text" name="title">
+        
+        {% for error in form.title.errors  %}
+            <p> {{error}}</p>
+        {% endfor %}</p>
+        <p
+        
+        
+        <label for="">Description</label>
+        <textarea name="description" ></textarea>
+        {% for error in form.description.errors   %}
+            <p>{{error}}</p>
+        {% endfor %}</p>
+            
         <button type="submit">Submit</button>
     </form>
 </body>
